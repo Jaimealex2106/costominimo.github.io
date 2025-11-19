@@ -1,0 +1,231 @@
+/*estilos generales */
+
+/*estilos para el cuerpo de la página */
+body {
+  /* Tipo de letra */
+  font-family: Arial, sans-serif;
+  /* Tamaño de letra */
+  font-size: 16px;
+  /*margen alrededor del contenido */
+  margin: 30px;
+  /* Color de fondo */
+  background-color: #f7f7f7;
+}
+
+/*estilos para los encabezados */
+h1 {
+  color: #2c3e50;
+}
+h2 {
+  color: #34495e;
+}
+
+/*estilos para los formularios */
+textarea {
+  font-family: monospace;
+  font-size: 14px;
+  /*relleno interno */
+  padding: 8px;
+  /*ancho completo */
+  width: 100%;
+  /*ancho máximo */
+  max-width: 500px;
+}
+
+/*estilos para los botones */
+button {
+  padding: 10px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  /*borde redondeado */
+  border-radius: 5px;
+  /*cursor */
+  cursor: pointer;
+  margin-right: 5px;
+}
+/*estilos para el botón al pasar el ratón por encima */
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Botón limpiar con color diferente */
+#limpiar {
+  background-color: #e74c3c;
+}
+/*Los estilos para el botón limpiar al pasar el ratón por encima */
+/*hover= es una pseudoclase que aplica estilos cuando el usuario coloca el cursor sobre el elemento */
+#limpiar:hover {
+  background-color: #c0392b;
+}
+
+/*estilos para el bloque de código de ejemplo */
+pre {
+  background-color: white;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 500px;
+}
+
+input {
+  padding: 8px;
+  font-size: 14px;
+  width: 100%;
+  max-width: 200px;
+}
+
+/* Tablas e inputs para el método de costo mínimo */
+
+/* Tabla de entrada (costos, oferta, demanda) */
+/* Estilos generales de la tabla */
+/*conexion con el js*/
+.tabla-datos {
+  border-collapse: collapse;
+  margin-bottom: 12px;
+}
+.tabla-datos td,
+.tabla-datos th {
+  border: 1px solid #bbb;
+  padding: 8px;
+}
+.tabla-datos input[type="number"] {
+  width: 120px;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+/* Inputs de la tabla de entrada */
+.input-costo, .input-oferta, .input-demanda {
+  width: 120px;
+  padding: 6px;
+  box-sizing: border-box;
+  border: 1px solid #bbb;
+}
+
+/* Encabezados de tabla (columnas y filas) */
+.table-header {
+  border: 1px solid #bbb;
+  padding: 8px;
+  font-weight: bold;
+  background-color: #e9ecef;
+}
+
+.table-row-header {
+  border: 1px solid #bbb;
+  padding: 8px;
+  font-weight: bold;
+  background-color: #e9ecef;
+}
+
+/* Tabla de asignaciones (resultados) */
+.tabla-asignaciones {
+  border-collapse: collapse;
+  margin-bottom: 12px;
+  font-size: 14px;
+  min-width: 420px;
+}
+.tabla-asignaciones td,
+.tabla-asignaciones th {
+  border: 1px solid #333;
+  padding: 8px;
+  text-align: center;
+}
+.tabla-asignaciones .table-header {
+  background-color: #e9ecef;
+  font-weight: bold;
+}
+
+/* Celdas ficticias (cuando hay desbalance) */
+.celda-ficticia {
+  background-color: #ffffcc;
+}
+
+/* Celdas con asignaciones (resultados) */
+.celda-asignacion {
+  background-color: #c3e6cb;
+  font-weight: bold;
+}
+
+/* Contenedor de resultados con scroll */
+.resultado-contenedor {
+  overflow-y: auto;
+  max-height: 600px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Caja para cada iteración */
+.iteracion-box {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 2px solid #333;
+  background-color: #f9f9f9;
+}
+
+/* Título de iteración */
+.iteracion-title {
+  color: #333;
+}
+
+/* Texto informativo de la iteración */
+.info-text {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Caja de solución final */
+.final-box {
+  margin-top: 20px;
+  padding: 15px;
+  border: 3px solid #28a745;
+  background-color: #d4edda;
+}
+
+/* Título de la solución final */
+.titulo-final {
+  color: #28a745;
+}
+
+/* Costo total final */
+.costo-final {
+  font-size: 16px;
+}
+
+/* Detalles de asignaciones */
+.detalles-text {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Título de tabla de asignaciones */
+.titulo-tabla {
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+/* Mensajes de error */
+.error-message {
+  padding: 15px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  color: #721c24;
+  margin-bottom: 15px;
+}
+
+.error-message strong {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.error-message button {
+  background-color: #721c24;
+  padding: 8px 15px;
+  margin-top: 10px;
+}
+
+.error-message button:hover {
+  background-color: #5a1a1f;
+}
+
