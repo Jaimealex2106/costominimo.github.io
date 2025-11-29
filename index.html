@@ -9,8 +9,17 @@
   <meta charset="utf-8" />
 <!--Título de la página-->
   <title>Método del Costo Mínimo</title>
-<!--Conexion con la hoja de estilos de css -->
-  <link rel="stylesheet" href="styles.css">
+  <!-- Fonts (load before styles so rules use them immediately) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="assets/styles.css">
+  <!-- SheetJS para exportar a Excel -->
+  <script src="https://cdn.sheetjs.com/xlsx-0.19.2/package/dist/xlsx.full.min.js"></script>
+  <!-- jsPDF + html2canvas para exportar PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <!-- OCR and QR libraries removed per request -->
 </head>
 <!--Marca el inicio del cuerpo del documento-->
 <body>
@@ -18,14 +27,15 @@
   <h1>Método del Costo Mínimo</h1>
 <!--Parrafo introductorio -->
   <p>Introduce los datos de tu problema de transporte:</p>
-  <input id="filas" type="number" placeholder="Número de filas" min="1" max="10">
-  <input id="columnas" type="number" placeholder="Número de columnas" min="1" max="10">
+  <input id="filas" type="number" placeholder="Número de filas" min="2" max="10">
+  <input id="columnas" type="number" placeholder="Número de columnas" min="2" max="10">
   <br><br>
 <!--Boton para generar la tabla con el parametro id= identificador -->
-  <button id="generarTabla">Generar Tabla</button>
-  <button id="limpiar">Limpiar Todo</button>
-  <button id="numeros_aleatorios" >Llenar con Números Aleatorios</button>
-  <button id="filasyColumnasAleatorios"> Generar Filas y Columas aleatorios</button>
+  <button id="generarTabla"><img class="btn-icon-img" src="assets/generar_tabla.png" alt="" onerror="this.style.display='none'">Generar Tabla</button>
+  <button id="limpiar"><img class="btn-icon-img" src="assets/limpiar_todo.png" alt="" onerror="this.style.display='none'">Limpiar Todo</button>
+  <button id="numeros_aleatorios"><img class="btn-icon-img" src="assets/generar_numeros_aleatorios.png" alt="">Llenar con Números Aleatorios</button>
+  <button id="filasyColumnasAleatorios"><img class="btn-icon-img" src="assets/generar_filas_columnas_aleatorios.png" alt="">Generar Filas y Columas aleatorios</button>
+  <button id="generarAleatorioCompleto"><img class="btn-icon-img" src="assets/generar_problema_aleatorio.png" alt="">Generar problema aleatorio</button>
   <br><br>
 <!--Contenedor de la tabla generada -->
   <div id="contenedorTabla"></div>
@@ -34,12 +44,26 @@
 <!--Salto de linea-->
   <br><br>
 <!--Boton para calcular con el parametro id= identificador -->
-  <button id="calcular">Calcular</button>
+  <button id="calcular"><img class="btn-icon-img" src="assets/calcular.png" alt="">Calcular</button>
+  <!-- Export/ IO -->
+  <div class="io-buttons export-group">
+    <button id="exportExcel"><img class="btn-icon-img" src="assets/exportar_excel.png" alt="">Exportar Excel</button>
+    <button id="exportPDF"><img class="btn-icon-img" src="assets/exportar_pdf.png" alt="">Exportar PDF</button>
+    <button id="verificarMODI"><img class="btn-icon-img" src="assets/verificar_modi.png" alt="">Verificar MODI</button>
+    <label style="margin-left:8px;"><input id="showAllIterations" type="checkbox" checked> Mostrar todas las iteraciones</label>
+  </div>
+  <!-- Iteration controls -->
+  <div class="io-buttons">
+    <button id="iterPrev"><img class="btn-icon-img" src="assets/anterior.png" alt="" onerror="this.style.display='none'">Anterior</button>
+    <button id="iterPlay"><img class="btn-icon-img" src="assets/play.png" alt="" onerror="this.style.display='none'"><span class="btn-label">Reproducir</span></button>
+    <button id="iterNext"><img class="btn-icon-img" src="assets/siguiente.png" alt="" onerror="this.style.display='none'">Siguiente</button>
+    <span id="iterIndicator"></span>
+  </div>
 <!--titulo secundario -->
   <h2>Resultado:</h2>
 
   <div id="resultado" style="border: 1px solid #ddd; padding: 15px; border-radius: 5px;"></div>
 <!--Conexion con el archivo de javascript para el metodo del costo minimo -->
-  <script src="costoMinimo.js"></script>
+  <script src="js/costoMinimo.js"></script>
 </body>
 </html>
