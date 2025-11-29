@@ -1,0 +1,479 @@
+/*estilos generales */
+
+/* Local font-face declarations (using the bundled TTF files in subfolders)
+   The repo contains font folders: Inter/static, Merriweather/static, Poppins
+   These @font-face entries point to common Regular/Bold/SemiBold TTF files.
+   If you later prefer woff2, replace URLs with .woff2 sources.
+*/
+@font-face {
+  font-family: 'InterLocal';
+  src: url('../assets/fonts/Inter/static/Inter_18pt-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'InterLocal';
+  src: url('../assets/fonts/Inter/static/Inter_18pt-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PoppinsLocal';
+  src: url('../assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PoppinsLocal';
+  src: url('../assets/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MerriweatherLocal';
+  src: url('../assets/fonts/Merriweather/static/Merriweather_24pt-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MerriweatherLocal';
+  src: url('../assets/fonts/Merriweather/static/Merriweather_36pt-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*estilos para el cuerpo de la página */
+body {
+  /* Prefer local bundled fonts, fall back to web/system fonts */
+  font-family: 'InterLocal', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  /* Slightly larger base font for better readability */
+  font-size: 18px;
+  /*margen alrededor del contenido */
+  margin: 28px;
+  /* Color de fondo */
+  background-color: #f4f6f8;
+}
+
+/*estilos para los encabezados */
+h1 {
+  font-family: 'MerriweatherLocal', 'Merriweather', serif;
+  font-weight: 900;
+  font-size: 40px;
+  color: #112d4e;
+  letter-spacing: 0.6px;
+  margin-bottom: 6px;
+}
+h2 {
+  font-family: 'MerriweatherLocal', 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #34495e;
+}
+
+p {
+  font-family: 'InterLocal', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+/*estilos para los formularios */
+textarea {
+  font-family: monospace;
+  font-size: 14px;
+  /*relleno interno */
+  padding: 8px;
+  /*ancho completo */
+  width: 100%;
+  /*ancho máximo */
+  max-width: 500px;
+}
+
+/*estilos para los botones */
+/*estilos para los botones */
+button {
+  padding: 12px 16px;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 8px 20px rgba(12,20,30,0.06);
+  transition: transform 150ms ease, box-shadow 150ms ease, opacity 140ms ease, background 120ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1;
+  font-family: 'PoppinsLocal', 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+/*estilos para el botón al pasar el ratón por encima */
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(12,20,30,0.10);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 12px rgba(20,20,30,0.08);
+}
+
+button:focus {
+  outline: 3px solid rgba(52,144,220,0.14);
+  outline-offset: 3px;
+}
+
+/* Paleta y estilos por botón (IDs actuales en el HTML) */
+#generarTabla { background: linear-gradient(180deg,#20c997 0%,#0e8a94 100%); color:#fff; }
+#generarAleatorioCompleto { background: linear-gradient(180deg,#6f42c1 0%,#4e2a8c 100%); color:#fff; }
+#numeros_aleatorios, #filasyColumnasAleatorios { background: linear-gradient(180deg,#6f42c1 0%,#4e2a8c 100%); color:#fff; }
+#calcular { background: linear-gradient(180deg,#0069d9 0%,#004a9f 100%); }
+#exportExcel { background: linear-gradient(180deg,#28a745 0%,#1e7e34 100%); }
+#exportPDF { background: linear-gradient(180deg,#dc3545 0%,#a71d2a 100%); }
+#verificarMODI { background: linear-gradient(180deg,#ffc107 0%,#cc9a06 100%); color:#111; }
+#iterPrev, #iterPlay, #iterNext { background: linear-gradient(180deg,#6c757d 0%,#495057 100%); }
+
+/* Disabled state */
+button[disabled], button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* Botón limpiar con color diferente */
+#limpiar {
+  background-color: #e74c3c;
+}
+/*Los estilos para el botón limpiar al pasar el ratón por encima */
+/*hover= es una pseudoclase que aplica estilos cuando el usuario coloca el cursor sobre el elemento */
+#limpiar:hover {
+  background-color: #c0392b;
+}
+
+/*estilos para el bloque de código de ejemplo */
+pre {
+  background-color: white;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 500px;
+}
+
+input {
+  padding: 8px;
+  font-size: 14px;
+  width: 100%;
+  max-width: 200px;
+}
+
+/* Tablas e inputs para el método de costo mínimo */
+
+/* Tabla de entrada (costos, oferta, demanda) */
+/* Estilos generales de la tabla */
+/*conexion con el js*/
+.tabla-datos {
+  border-collapse: collapse;
+  margin-bottom: 14px;
+  width: 100%;
+  max-width: 1000px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 26px rgba(12,20,30,0.04);
+}
+.tabla-datos td,
+.tabla-datos th {
+  padding: 10px 14px;
+  border: 1px solid rgba(30,60,90,0.06);
+  vertical-align: middle;
+}
+.tabla-datos input[type="number"] {
+  width: 140px;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #e2e6ea;
+  border-radius: 6px;
+}
+
+/* Inputs de la tabla de entrada */
+.input-costo, .input-oferta, .input-demanda {
+  width: 120px;
+  padding: 6px;
+  box-sizing: border-box;
+  border: 1px solid #bbb;
+}
+
+/* Encabezados de tabla (columnas y filas) */
+.table-header {
+  padding: 10px 12px;
+  font-weight: 700;
+  background: linear-gradient(180deg,#f7f9fa 0%,#eef1f3 100%);
+  color: #233;
+}
+
+.table-row-header {
+  border: 1px solid #bbb;
+  padding: 8px;
+  font-weight: bold;
+  background-color: #e9ecef;
+}
+
+/* Tabla de asignaciones (resultados) */
+.tabla-asignaciones {
+  border-collapse: collapse;
+  margin-bottom: 12px;
+  font-size: 14px;
+  min-width: 420px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(12,20,30,0.04);
+}
+.tabla-asignaciones td,
+.tabla-asignaciones th {
+  padding: 10px 12px;
+  text-align: center;
+  border: 1px solid rgba(30,60,90,0.06);
+}
+.tabla-asignaciones .table-header {
+  background: linear-gradient(180deg,#f7f9fa 0%,#eef1f3 100%);
+  font-weight: 700;
+}
+.tabla-asignaciones tbody tr:hover td { background: rgba(0,0,0,0.03); }
+
+/* Intensify color on hover for assigned cells and inputs */
+.tabla-asignaciones td.celda-asignacion:hover { background: #9edb82; box-shadow: inset 0 -3px 0 rgba(0,0,0,0.04); }
+.tabla-datos td:hover, .tabla-asignaciones td:hover { filter: brightness(0.985); }
+
+/* Table fonts */
+.tabla-datos, .tabla-asignaciones { font-family: 'PoppinsLocal', 'Poppins', 'InterLocal', 'Inter', system-ui, sans-serif; }
+.tabla-datos td, .tabla-asignaciones td { font-family: 'InterLocal', 'Inter', system-ui, sans-serif; }
+
+/* Responsive tweaks */
+@media (max-width: 820px) {
+  .io-buttons { flex-direction: column; align-items: stretch; }
+  .io-buttons button { width: 100%; }
+  .tabla-datos, .tabla-asignaciones { font-size: 13px; }
+}
+
+/* Emphasize headers */
+.table-header { background: linear-gradient(180deg,#fbfdff 0%,#f1f6fb 100%); color: #1f3a57; }
+
+/* Resultado container slight border + better padding */
+.resultado-contenedor { border-radius: 8px; padding: 12px; border: 1px solid rgba(30,60,90,0.04); background: linear-gradient(180deg,#ffffff 0%, #fbfdff 100%); }
+
+/* Celdas ficticias (cuando hay desbalance) */
+.celda-ficticia {
+  background-color: #ffffcc;
+}
+
+/* Celdas con asignaciones (resultados) */
+.celda-asignacion {
+  background-color: #c3e6cb;
+  font-weight: bold;
+}
+
+/* Contenedor de resultados con scroll */
+.resultado-contenedor {
+  overflow-y: auto;
+  max-height: 600px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Caja para cada iteración */
+.iteracion-box {
+  margin-bottom: 20px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(40,40,40,0.06);
+  background-color: #ffffff;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 280ms cubic-bezier(.2,.9,.3,1), transform 280ms cubic-bezier(.2,.9,.3,1);
+}
+/* Clase para hacer aparecer animada la iteracion*/
+.anim-in { opacity: 1 !important; transform: translateY(0) !important; }
+
+/* Resaltar bordes y estilo específico para las tablas dentro de cada iteración */
+.iteracion-box .tabla-asignaciones,
+.iteracion-box .tabla-datos {
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.04);
+}
+.iteracion-box .tabla-asignaciones td,
+.iteracion-box .tabla-asignaciones th,
+.iteracion-box .tabla-datos td,
+.iteracion-box .tabla-datos th {
+  border: 1.5px solid rgba(30,60,90,0.08);
+  transition: background 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+}
+.iteracion-box .tabla-asignaciones td.celda-asignacion {
+  background-color: #bfe6a8;
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.03);
+}
+.iteracion-box .tabla-asignaciones tbody tr:hover td { background: rgba(0,0,0,0.03); }
+
+/* Título de iteración */
+.iteracion-title {
+  color: #333;
+}
+
+/* Texto informativo de la iteración */
+.info-text {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Caja de solución final */
+.final-box {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 8px;
+  border: 2px solid rgba(40,167,69,0.18);
+  background: linear-gradient(180deg,#f6fff6 0%,#eaf7ea 100%);
+}
+
+/* Título de la solución final */
+.titulo-final {
+  color: #28a745;
+}
+
+/* Costo total final */
+.costo-final {
+  font-size: 16px;
+}
+
+/* Detalles de asignaciones */
+.detalles-text {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Título de tabla de asignaciones */
+.titulo-tabla {
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+/* IO buttons group */
+.io-buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+}
+
+.io-buttons select {
+  padding: 6px;
+}
+
+/* Small layout tweaks for new controls */
+.io-buttons button, .io-buttons select, .io-buttons input {
+  font-size: 14px;
+}
+
+/* Icon inside buttons */
+/* Hide any leftover SVG fallback icons (we use PNGs only) */
+.btn-icon { display: none !important; }
+/* Image icon inside buttons (PNG) */
+.btn-icon-img {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+/* Make button text larger to balance icon size */
+button { gap: 8px; }
+
+/* Reorder buttons visually to a consistent layout (tweak order values as needed) */
+#generarTabla { order: 1; }
+#generarAleatorioCompleto { order: 2; }
+#calcular { order: 3; }
+#numeros_aleatorios { order: 4; }
+#filasyColumnasAleatorios { order: 5; }
+#exportExcel { order: 6; }
+#exportPDF { order: 7; }
+#verificarMODI { order: 8; }
+#iterPrev { order: 9; }
+#iterPlay { order: 10; }
+#iterNext { order: 11; }
+
+#qrcode {
+  margin-left: 8px;
+}
+
+#iterIndicator {
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+/* Mensajes de error */
+.error-message {
+  padding: 15px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  color: #721c24;
+  margin-bottom: 15px;
+}
+
+.error-message strong {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.error-message button {
+  background-color: #721c24;
+  padding: 8px 15px;
+  margin-top: 10px;
+}
+
+.error-message button:hover {
+  background-color: #5a1a1f;
+}
+
+/* MODI styles */
+.modi-container {
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px dashed rgba(108,117,125,0.35);
+  background-color: #fbfbfc;
+}
+.tabla-modi {
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+.tabla-modi td, .tabla-modi th {
+  border: 1px solid #666;
+  padding: 6px 8px;
+  text-align: center;
+}
+.modi-negative {
+  background-color: #ffe6e6;
+  color: #a71d2a;
+  font-weight: bold;
+}
+.modi-na {
+  background-color: #f8f9fa;
+  color: #6c757d;
+}
+.uv-box p {
+  margin: 4px 0;
+}
+
